@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  monctonug.razorpages:
+    image: ${DOCKER_REGISTRY-}monctonug
+    build:
+      context: .
+      dockerfile: MonctonUG.RazorPages/Dockerfile
