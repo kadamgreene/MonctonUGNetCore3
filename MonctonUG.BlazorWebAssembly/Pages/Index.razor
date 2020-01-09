@@ -1,0 +1,19 @@
+﻿@page "/"
+@inject HttpClient httpClient
+
+<h1>@greeting</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+@code {
+    protected string greeting;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await httpClient.GetAsync("https://localhost:44346/hello/Adam");
+        await Task.Delay(1000);
+        greeting = await result.Content.ReadAsStringAsync();
+    }
+}

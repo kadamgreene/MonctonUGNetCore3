@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
@@ -24,6 +25,9 @@ namespace MonctonUG.RazorPages
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddControllers();
+            services.AddHttpClient();
+            services.AddCors(config => config.AddPolicy("default", new CorsPolicy() { IsOriginAllowed = url => true }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +44,8 @@ namespace MonctonUG.RazorPages
                 app.UseHsts();
             }
 
+            app.UseCors("default");
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -49,6 +55,7 @@ namespace MonctonUG.RazorPages
 
             app.UseEndpoints(endpoints => {
                 endpoints.MapRazorPages();
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
