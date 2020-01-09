@@ -11,13 +11,11 @@ namespace MonctonUG.CSharp8
     {
         public static void Run()
         {
+            using var file = new FileWrapper("lines.txt");
             int lines = 0;
-            using(var file = new FileWrapper("lines.txt"))
+            while (!String.IsNullOrEmpty(file.ReadLine()))
             {
-                while(!String.IsNullOrEmpty(file.ReadLine()))
-                {
-                    lines++;
-                }
+                lines++;
             }
             Console.WriteLine($"There are {lines}");
         }
