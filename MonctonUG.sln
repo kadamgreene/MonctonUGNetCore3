@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonctonUG.RazorPages", "Mon
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{21921040-A3D3-4D12-9A3D-693C8F56398F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonctonUG.CSharp8", "MonctonUG.CSharp8\MonctonUG.CSharp8.csproj", "{A1E2725D-5B3A-4E96-9123-022F7BB4D54B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonctonUG.CSharp8", "MonctonUG.CSharp8\MonctonUG.CSharp8.csproj", "{A1E2725D-5B3A-4E96-9123-022F7BB4D54B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonctonUG.BlazorWebAssembly", "MonctonUG.BlazorWebAssembly\MonctonUG.BlazorWebAssembly.csproj", "{DFA23BE5-B950-4944-84F5-615A8C1F025D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonctonUG.BlazorWebAssembly", "MonctonUG.BlazorWebAssembly\MonctonUG.BlazorWebAssembly.csproj", "{DFA23BE5-B950-4944-84F5-615A8C1F025D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonctonUG.BlazorServer", "MonctonUG.BlazorServer\MonctonUG.BlazorServer.csproj", "{0D560D27-0F21-49AE-89AB-48B69D53A450}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{DFA23BE5-B950-4944-84F5-615A8C1F025D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFA23BE5-B950-4944-84F5-615A8C1F025D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFA23BE5-B950-4944-84F5-615A8C1F025D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D560D27-0F21-49AE-89AB-48B69D53A450}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D560D27-0F21-49AE-89AB-48B69D53A450}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D560D27-0F21-49AE-89AB-48B69D53A450}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D560D27-0F21-49AE-89AB-48B69D53A450}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
