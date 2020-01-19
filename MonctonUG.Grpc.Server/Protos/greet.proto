@@ -12,6 +12,7 @@ service Greeter {
   // Sends a greeting
   rpc SayHello (HelloRequest) returns (HelloReply);
   rpc GetWeatherStream (google.protobuf.Empty) returns (stream WeatherData);
+  rpc LotsOfGreetings(stream HelloRequest) returns (HelloReply);
 }
 
 // The request message containing the user's name.

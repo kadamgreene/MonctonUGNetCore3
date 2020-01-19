@@ -6,6 +6,7 @@ namespace MonctonUG.CSharp8
     {
         static void Main(string[] args)
         {
+            //SpanExample.Run();
             // InlineSwitch.Run();
             // PropertySwitch.Run();
             // DeconstructSwitch.Run();

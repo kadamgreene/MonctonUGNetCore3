@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
@@ -30,11 +31,33 @@ namespace MonctonUG.Grpc.Server
             for(int index = 1; index <= 5; index++)
             {
                 var tempC = rng.Next(-20, 55);
+                var weather = MakeWeather(rng, index, tempC);
 
-                await responseStream.WriteAsync(MakeWeather(rng, index, tempC));
+                Console.WriteLine($"Sending weather {weather.DateTimeStamp}");
+
+                await responseStream.WriteAsync(weather);
 
                 await Task.Delay(1000);
+
+                if (context.CancellationToken.IsCancellationRequested)
+                {
+                    Console.WriteLine("Cancelling sending weather");
+                    break;
+                }
             }
+        }
+
+        public override async Task<HelloReply> LotsOfGreetings(IAsyncStreamReader<HelloRequest> requestStream, ServerCallContext context)
+        {
+            StringBuilder greetings = new StringBuilder();
+            await foreach(var greeting in requestStream.ReadAllAsync())
+            {
+                Console.WriteLine($"Received {greeting.Name}");
+                greetings.AppendLine($"Hello {greeting.Name}");
+            }
+
+            Console.WriteLine("Sending Greeting(s)");
+            return new HelloReply { Message = greetings.ToString() };
         }
 
         private static WeatherData MakeWeather(Random rng, int index, int tempC)
