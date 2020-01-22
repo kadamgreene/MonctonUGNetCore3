@@ -7,7 +7,7 @@ namespace MonctonUG.CSharp8
     {
         internal static void Run()
         {
-            WriteOutput(null);
+            NullForgivingWrapper(null);
         }
 
         public static void WriteOutput(string value)
@@ -18,6 +18,7 @@ namespace MonctonUG.CSharp8
         private static void NullForgivingWrapper(string? biglongnamesoyoucanseetheunderline)
         {
             WriteOutput(biglongnamesoyoucanseetheunderline!);
+
         }
     }
 #nullable restore

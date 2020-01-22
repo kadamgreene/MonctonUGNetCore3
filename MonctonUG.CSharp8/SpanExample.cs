@@ -10,9 +10,10 @@ namespace MonctonUG.CSharp8
     {
         public static void Run()
         {
-            var startsWithT = "Test".AsSpan().StartsWith("T");
-            var c = (new int[] { 1 }).AsSpan();
+            var startsWithT = "Test".AsSpan(2, 3).StartsWith("T");
+            var c = (new int[] { 1, 2, 3, 4 }).AsSpan();
             var d = c.Slice(1, 1);
+            d[0] = 5;
             Console.WriteLine($"Starts with T: {startsWithT}");
         }
     }

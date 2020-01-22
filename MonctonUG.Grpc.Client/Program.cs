@@ -34,11 +34,11 @@ namespace MonctonUG.Grpc.Client
                 await foreach (var (timestamp, temperature, summary) in weatherStream.ReadAllAsync(cancelToken))
                 {
                     Console.WriteLine($"{timestamp} will be {temperature}C, which is {summary}");
-                    //index++;
-                    //if (index > 2)
-                    //{
-                    //    break;
-                    //}
+                    index++;
+                    if (index > 2)
+                    {
+                        break;
+                    }
                 }
             }
 
